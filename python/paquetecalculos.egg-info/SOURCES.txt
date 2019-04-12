@@ -1,0 +1,13 @@
+setup.py
+modulos/__init__.py
+modulos/funciones_matematicas.py
+modulos/modulo_vehiculos.py
+modulos/uso_funciones.py
+modulos/uso_modulos.py
+modulos/uso_vehiculos.py
+modulos/calculos/__init__.py
+modulos/calculos/calculos_generales.py
+paquetecalculos.egg-info/PKG-INFO
+paquetecalculos.egg-info/SOURCES.txt
+paquetecalculos.egg-info/dependency_links.txt
+paquetecalculos.egg-info/top_level.txt

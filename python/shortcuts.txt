@@ -1,0 +1,56 @@
+http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_win.html
+
+	CTRL + K : Borra la línea actual.
+	CTRL + X : Corta la línea actual.
+	CTRL + SHIFT + ARRIBA : Mueve el texto resaltado arriba.
+	Ctrl + Shift + ABAJO : Mueve el texto resaltado abajo.
+	CTRL + W : Cierra la pestaña actual.
+	CTRL + KK : Borra todo desde el cursor hasta el final de la línea.
+	CTRL + F : Buscar.
+	CTRL + H : Buscar y reemplazar.
+	CTRL + KU : Convertir el texto seleccionado a mayúsculas.
+	CTRL + KL : Convertir el texto seleccionado a minúsculas.
+	CTRL + KB : Alternar la barra lateral.
+	CTRL + [ : Indentar la línea actual.
+	CTRL + ] : Sangrar la línea actual.
+	CTRL + / : Comentar / Descomentar la línea o la selección actual.
+	ALT + SHIFT + [NÚMERO] : Divide la pantalla en X columnas (máximo 4)
+	CTRL + 0 : Centra la barra lateral.
+	CTRL + 1-4 : Centra la columna 1-4.
+	CTRL + SHIFT + 1-4 : Mueve el archivo a la columna 1-4.
+
+
+ADDING SHORTCUTS
+----------------
+Preferences > Key Bindings
+	option A
+	{ 
+		"keys": ["ctrl+alt+b"],
+		"command": "run_existing_window_command",
+		"args": {
+    		"id": "repl_python_run",
+    		"file": "config/Python/Main.sublime-menu"
+		}
+	}
+	option B
+	{
+		"keys": ["ctrl+alt+b"],
+		"command": "repl_open",
+		"caption": "Python - RUN current file",
+		"id": "repl_python_run",
+		"mnemonic": "d",
+		"args": {
+			"type": "subprocess",
+			"encoding": "utf8",
+			"cmd": [
+				"C:\\Users\\juan.terraza\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+				"-u",
+				"-i",
+				"$file_basename"
+			],
+			"cwd": "$file_path",
+	        "syntax": "Packages/Python/Python.tmLanguage",
+	        "external_id": "python",
+	        "extend_env": {"PYTHONIOENCODING": "utf-8"}
+		}
+	}

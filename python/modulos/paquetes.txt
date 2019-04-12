@@ -1,0 +1,51 @@
+
+Si no se encuentra el módulo a importar en el mismo directorio en el que se le llama,
+Python busca por defecto en el syspath
+un conjunto de directorios entre los que están los archivos de instalción y otros
+
+Si el paquete no está instalado, la ruta de importación es relativa,
+una vez instalado, las rutas de importación deben ser desde el directorio raíz
+
+
+Para crear un paquete debemos crear una carpeta con un archivo __init__.py
+De manera que Python interpretará al directorio en el que se uncuentra el
+archivo __init__.py como un paquete
+
+También se pueden crear subpaquetes cada uno de los directorios con el __init__.py
+
+Los paquetes distribuibles y reutilizables requieren de dos pasos:
+	1. Crear paquete
+	2. Instalar paquete
+
+Creamos un archivo setup.py en el directorio raiz y lo configuramos
+	los parámetros más importantes son:
+		setup(
+			name = packageName,
+			packages = [primerDirectorioCon__init.py__, rutaPaquetes.dotNotation]
+		)
+
+Accedemos a ese directorio con la consola y ejecutamos:
+	python setup.py sdist
+
+Este comando nos crea 2 carpetas en el directorio raiz: 
+	packageName.egg-info
+	dist
+
+En el directorio dist habrá un archivo comprimido packageName-version.tar.gz
+Es este archivo comprimido el que se debe subir a las plataformas para
+distribuirlo a lo largo y ancho de la Matrix
+
+
+
+El proceso de instalación de un paquete distribuible es el inverso:
+	1. Accedemos al directorio dist con la consola y ejecutamos:
+		pip3 install sharedFileName.tar.gz
+
+Una vez instalado el paquete, este se puede importar desde cualquier sitio siempre que se escriba la ruta desde el directorio raíz, que es aquel en el que se crea el setup.py
+
+Si el paquete no está instalado, la ruta de importación es relativa,
+una vez instalado, las rutas de importación deben ser desde el directorio raíz
+
+
+Finalmente, para desinstalar un paquete se accede al directorio dist desde la consola y ejecutamos:
+	unistall packageName
