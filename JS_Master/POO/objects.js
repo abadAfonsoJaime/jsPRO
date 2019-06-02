@@ -120,3 +120,65 @@ const anotherPerson = Object.assign({}, person);
 console.log(anotherPerson);
 
 
+
+var base = {a:1, b:2, c:3},
+	noSpread,
+	withSpread,
+	withSpread2,
+	withSpread3;
+
+noSpread = { base }; // noSpread = { base : {a:1, b:2, c:3} }
+withSpread = { ...base }; // withSpread = {a:1, b:2, c:3} = base
+
+var d = 4;
+withSpread2 = { ...base, d } // withSpread = {a:1, b:2, c:3, d:4}
+withSpread2 = { d, ...base } // withSpread = {d:4, a:1, b:2, c:3}
+/**** DESTRUCTURING ****/
+var origin = {
+	a : 1,
+	b : 2,
+	c : 3,
+	d : 4
+};
+// Asignamos los valores
+var {a, b, ...other} = origin; // a=1, b=2, other={c:3, d:4}
+
+/**** Object.Assign() ****/
+// Allows to create a copy from an object and also overwrite some properties or methods
+var objeto1 = { name : "Assign!"};
+var objeto2 = { a : 1, b : 2};
+var objeto3 = { c : 3};
+var objeto4 = { d : 4, e : 5};
+
+var new Object.assign(
+	{ prop : 'test' },
+	objeto1,
+	objeto2
+); // { a:1, b:2, name:'Assign!', prop:'test'}
+
+// el operador ... utiliza Object.assign()
+var {a, b} = { ...objeto1 } // Babel Polyfill
+
+
+
+
+/*
+The value of this is determined on how a function is called:
+	if it is called as a method in an object --> this reference to the object
+	if called as stand-alone or outside of an object --> this return the global object
+*/
+const user = {
+
+	name: 'Jaime',
+	surf() {
+		console.log(this);
+	}
+
+};
+
+user.surf();
+
+const surfing = user.surfing;
+console.log(surfing); // surf(){console.log(this)}
+
+surf() // undefined if strict mode activated, otherwise --> global object

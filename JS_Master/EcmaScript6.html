@@ -152,6 +152,37 @@ const objectoCoches2 = {
 document.write("<br/> forEach con notación => :<br/>");
 objectoCoches2.mostrarCoches();
 
+/* +++++++++++ FUNCIONES FLECHA +++++++++++ */
+const multiplyBy2 = a => a * 2;
+
+// Creamos un objeto con distintas propiedades
+var obj = {
+	nubers : [1, 2],
+	log : 'LOG',
+	printValues : function() {
+		this.numbers.forEach( function(f) {
+			console.log(this.log + f)
+			// the scope this is updated inside the function and so that log is undefined
+		});
+	},
+	printValuesArrow : function() {
+		// same function with arrow token => a new scope is NOT created
+		this.numbers.forEach( f => {
+			console.log(this.log + f);
+		});
+		// Babel applies the OldSolution when transpiling
+	},
+	printValuesOldSolution : function() {
+		self = this;
+		this.numbers.forEach( function(f) {
+			console.log(self.log + f)
+			// we use the self variable to achieve the object scope from the insides of the function
+		});
+	}
+}
+//obj.printValues
+obj.printValuesArrow
+obj.printValuesOldSolution
 
 /*window.age = 12;
 

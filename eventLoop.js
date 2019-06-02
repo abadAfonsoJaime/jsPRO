@@ -68,4 +68,4 @@ if (lista1 === lista2) {
 } else {
    console.log("distintas");
 }
-distintas
+//distintas
